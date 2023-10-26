@@ -1,0 +1,116 @@
+ Button bt4 =new Button ("Search a Media by a code ");
+	     		 bt4.setMinWidth(300);
+	     		  bt4.setOnAction(new EventHandler<ActionEvent>() {
+					@Override
+						public void handle(ActionEvent arg0) {
+							BorderPane e=new BorderPane();
+							GridPane g=new GridPane();
+						   	
+							g.add(new Label("Customer Code: "), 0, 0);
+							TextField code=new TextField ();
+							g.add(code, 1, 0);
+							Label c=new Label("Find");
+							Image image11=new Image("find.png");
+							Button b=new Button("", new ImageView(image11));
+							b.setOnAction(new EventHandler<ActionEvent>() {
+								@Override
+								public void handle(ActionEvent arg0) {
+									int [] s= m.find2(code.getText());
+									if(s[1]==1) {
+										
+											g.add(new Label("The Movie "), 0, 1);
+											TextField Movie=new TextField ();
+											g.add(Movie, 1, 1);
+											g.add(new Label(" the number of copies "), 0, 2);
+											TextField copies=new TextField ();
+											g.add(copies, 1, 2);
+											g.add(new Label("the code "), 0, 3);
+											TextField code=new TextField ();
+											g.add(code, 1, 3);
+											g.add(new Label(" the rating "), 0, 4);
+											TextField rating=new TextField ();
+											g.add(rating, 1, 4);
+								Movie.setText(m.List2.get(s[0]).getTitle());
+								copies.setText(String.valueOf(m.List2.get(s[0]).getCopiesAvailable()));
+								code.setText(m.List2.get(s[0]).getCode());
+								rating.setText(((Moviee)m.List2.get(s[0])).getRating());
+
+									}
+									
+									if(s[1]==2) {
+										TextField album=new TextField ();
+										g.add(album, 1, 1);
+										g.add(new Label("please enter the number of copies "), 0, 2);
+										TextField copies=new TextField ();
+										g.add(copies, 1, 2);
+										g.add(new Label("please enter a code "), 0, 3);
+										TextField code=new TextField ();
+										g.add(code, 1, 3);
+
+										g.add(new Label("please enter the artist name "), 0, 4);
+										TextField artist=new TextField ();
+										g.add(artist, 1, 4);
+										g.add(new Label("please enter the songs "), 0, 5);
+										TextField songs=new TextField ();
+										g.add(songs, 1, 5);
+										album.setText(m.List2.get(s[0]).getTitle());
+										copies.setText(String.valueOf(m.List2.get(s[0]).getCopiesAvailable()));
+										code.setText(m.List2.get(s[0]).getCode());
+										artist.setText(((Album)m.List2.get(s[0])).getArtist());
+										songs.setText(((Album)m.List2.get(s[0])).getSongs());
+									}
+									if(s[1]==3) {
+										g.add(new Label("please enter a Game "), 0, 1);
+										TextField Game=new TextField ();
+										g.add(Game, 1, 1);
+										g.add(new Label("please enter the number of copies "), 0, 2);
+										TextField copies=new TextField ();
+										g.add(copies, 1, 2);
+										g.add(new Label("please enter a code "), 0, 3);
+										TextField code=new TextField ();
+										g.add(code, 1, 3);
+										g.add(new Label("please enter the weight "), 0, 4);
+										TextField weight=new TextField ();
+										g.add(weight, 1, 4);
+										Game.setText(m.List2.get(s[0]).getTitle());
+										copies.setText(String.valueOf(m.List2.get(s[0]).getCopiesAvailable()));
+										code.setText(m.List2.get(s[0]).getCode());
+										weight.setText(String.valueOf(((Game)m.List2.get(s[0])).getWeight()));
+										
+									}
+									
+									
+								}
+								
+							});
+						
+						
+							Label c2=new Label("Back");
+							Image image33=new Image("back.png");
+							Button b2=new Button("", new ImageView(image33));
+							b2.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent arg0) {
+									primaryStage.setScene(scene3);
+									
+								}
+								
+							});
+						    HBox k=new HBox();
+						    k.getChildren().addAll(c,b,c2,b2);
+						    k.setSpacing(25);
+						    k.setAlignment(Pos.CENTER);
+						   k.setPadding(new Insets(25,25,50,25));
+						    e.setBottom(k);
+							g.setAlignment(Pos.CENTER);
+						
+							g.setHgap(5);
+							g.setVgap(10);
+					     	e.setCenter(g);
+					     	Scene scene = new Scene(e,400,400);
+							primaryStage.setScene(scene);
+							primaryStage.show();
+					}
+	     		  
+	     		   });
